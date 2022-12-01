@@ -125,10 +125,10 @@ Rubiks::Rubiks()
 	subVertex[51][0] = 2;  subVertex[2][1] = 3;  subVertex[2][2] = 1;
 
 	//R
-	subVertex[52][0] = 1;  subVertex[3][1] = -1; subVertex[3][2] = -1;
-	subVertex[53][0] = -1; subVertex[4][1] = -1; subVertex[4][2] = 1;
-	subVertex[54][0] = -1; subVertex[5][1] = 1;  subVertex[5][2] = 1;
-	subVertex[55][0] = 1;  subVertex[6][1] = 1;  subVertex[6][2] = 1;
+	subVertex[52][0] = 1;  subVertex[3][1] = 0; subVertex[3][2] = 1;
+	subVertex[53][0] = 2; subVertex[4][1] = 0; subVertex[4][2] = 1;
+	subVertex[54][0] = 1; subVertex[5][1] = 0;  subVertex[5][2] = 2;
+	subVertex[55][0] = 2;  subVertex[6][1] = 0;  subVertex[6][2] = 2;
 
 
 	//Color reference INTS

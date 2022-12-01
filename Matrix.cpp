@@ -102,39 +102,7 @@ void Matrix::multiplyVector(GLfloat* v) {
 	}
 }
 
-
-void Matrix::printMatrix(){
-	printf("Matrix:\n");
-	printf("%f, %f,%f,%f\n",mat[0][0],mat[0][1],mat[0][2],mat[0][3]);
-	printf("%f, %f,%f,%f\n",mat[1][0],mat[1][1],mat[1][2],mat[1][3]);
-	printf("%f, %f,%f,%f\n",mat[2][0],mat[2][1],mat[2][2],mat[2][3]);
-	printf("%f, %f,%f,%f\n",mat[3][0],mat[3][1],mat[3][2],mat[3][3]);
-	printf("------------------\n");
-}
-
-
 void Matrix::rotateMatrix(GLfloat rx, GLfloat ry, GLfloat rz, GLfloat angle) {
-//	angle = angle * 3.1415926/180;
-//	float oneC = 1 - cos(angle);
-//	float COS = cos(angle);
-//	float SIN = sin(angle);
-//	mat[0][0] = x * x * oneC + cos( angle );
-//	mat[0][1] = y * x * oneC + z * sin( angle );
-//	mat[0][2] = x * z * oneC - y * SIN;
-//	mat[0][3] = 0;
-//	mat[1][0] = x * y * oneC - z * SIN;
-//	mat[1][1] = y * y * oneC + COS;
-//	mat[1][2] = y * z * oneC + x * SIN;
-//	mat[1][3] = 0;
-//	mat[2][0] = x * z * oneC + y * SIN;
-//	mat[2][1] = y * z * oneC - x * SIN;
-//	mat[2][2] = z * z * oneC + COS;
-//	mat[2][3] = 0;
-//	mat[3][0] = 0;
-//	mat[3][1] = 0;
-//	mat[3][2] = 0;
-//	mat[3][3] = 1;
-
     GLfloat radianAngle = angle * 3.1415926/180;
     GLfloat axisVectLength = sqrt (rx * rx + ry*ry + rz*rz);
     GLfloat cosA = cos (radianAngle);
@@ -163,7 +131,6 @@ void Matrix::rotateMatrix(GLfloat rx, GLfloat ry, GLfloat rz, GLfloat angle) {
     mat[3][1] = 0;
     mat[3][2] = 0;
     mat[3][3] = 1;
-
 }
 
 
