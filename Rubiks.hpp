@@ -27,13 +27,12 @@ protected:
 	//modifications
 
 	Color* Colors[6];
-	Color* faceColor[6][9];
 	GLint subface[6][9][4]; // 6 main faces, each with 9 sub-faces, each with 4 vertices
 	GLfloat subVertex[56][3]; // 6 main faces, each with 9 sub-faces, each with 4 vertices
-	GLint W, Y, O, R, G, B;
 
 
 public:
+	Color* faceColor[6][9];
 	Rubiks();
 	void draw();
 	void drawFace(int i, int j);
