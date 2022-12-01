@@ -14,7 +14,8 @@
 #include "Light.hpp"
 #include "Color.hpp"
 
-class Rubiks: public Shape {
+class Rubiks : public Shape
+{
 
 protected:
 	GLfloat vertex[8][3];
@@ -22,25 +23,24 @@ protected:
 	GLfloat faceNormal[6][3];
 	GLfloat vertexColor[8][3];
 	GLfloat vertexNormal[8][3];
-	GLfloat r, g, b; //unneeded?
+	GLfloat r, g, b; // unneeded?
 
-	//modifications
+	// modifications
 
-	Color* Colors[6];
-	GLint subface[6][9][4]; // 6 main faces, each with 9 sub-faces, each with 4 vertices
+	Color *Colors[6];
+	GLint subface[6][9][4];	  // 6 main faces, each with 9 sub-faces, each with 4 vertices
 	GLfloat subVertex[56][3]; // 6 main faces, each with 9 sub-faces, each with 4 vertices
 
-
 public:
-	Color* faceColor[6][9];
+	Color *faceColor[6][9];
 	Rubiks();
 	void draw();
 	void drawFace(int i, int j);
+	void rotateSide(GLint Face);
 
 	bool isFrontface(int faceindex, Camera camera);
 	GLfloat getFaceShade(int faceindex, Light light);
 	GLfloat getVertexShade(int vertexindex, Light light);
-
 };
 
 #endif
