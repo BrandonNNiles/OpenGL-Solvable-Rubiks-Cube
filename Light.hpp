@@ -10,6 +10,7 @@
 #include <GL/glut.h>
 #include "Shape.hpp"
 
+
 class Light: public Shape {
 public:
 	GLfloat I, Rd; /* point light intensity and reflection diffusion */

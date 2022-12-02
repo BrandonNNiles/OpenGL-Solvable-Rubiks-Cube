@@ -4,6 +4,7 @@
  *  Version: 2022-10-03 (update)
  */
 #include "Shape.hpp"
+#include "Rubiks.hpp"
 #include <stdio.h>
 
 using namespace std;
@@ -101,3 +102,4 @@ void Shape::ctmMultiply() {
 	M[15] = 1;
 	glMultMatrixf(M);
 }
+

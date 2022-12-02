@@ -7,6 +7,7 @@
 #include "World.hpp"
 #include "Camera.hpp"
 #include "Light.hpp"
+#include "Rubiks.hpp"
 
 extern GLint csType;
 extern Shape* selectObj;
@@ -16,6 +17,7 @@ extern Camera myCamera;
 extern Light myLight;
 extern CullMode cullMode;
 extern RenderMode renderMode;
+// extern Rubiks r;
 
 
 void menu() {
@@ -23,6 +25,36 @@ void menu() {
 	glutAddMenuEntry("Cube", 1);
 	glutAddMenuEntry("Pyramid", 2);
 	glutAddMenuEntry("House", 3);
+	
+	GLint RotateWhiteSub = glutCreateMenu(Rotate_White);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
+	
+	GLint RotateYellowSub = glutCreateMenu(Rotate_Yellow);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
+	
+	GLint RotateBlueSub = glutCreateMenu(Rotate_Blue);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
+	
+	GLint RotateOrangeSub = glutCreateMenu(Rotate_Orange);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
+	
+	GLint RotateGreenSub = glutCreateMenu(Rotate_Green);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
+	
+	GLint RotateRedSub = glutCreateMenu(Rotate_Red);
+	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("2X", 2);
+	glutAddMenuEntry("CCW", 3);
 
 	GLint MCTrans_Menu = glutCreateMenu(MCSTransMenu);
 	glutAddMenuEntry("Rotate x", 1);
@@ -78,7 +110,13 @@ void menu() {
 
 	glutCreateMenu(mainMenu);
 	glutAddMenuEntry("Reset", 1);
-	glutAddSubMenu("Select Object", Object_Menu);
+	//glutAddSubMenu("Select Object", Object_Menu);
+	glutAddSubMenu("Rotate White", RotateWhiteSub);
+	glutAddSubMenu("Rotate Yellow", RotateYellowSub);
+	glutAddSubMenu("Rotate Blue", RotateBlueSub);
+	glutAddSubMenu("Rotate Orange", RotateOrangeSub);
+	glutAddSubMenu("Rotate Green", RotateGreenSub);
+	glutAddSubMenu("Rotate Red", RotateRedSub);
 	glutAddSubMenu("MCS Transformations", MCTrans_Menu);
 	glutAddSubMenu("WCS Transformations", WCTrans_Menu);
 	glutAddSubMenu("VCS Transformations", VCTrans_Menu);
@@ -109,6 +147,43 @@ void ObjSubMenu(GLint objectOption)
 	myCamera.setRef(mp.mat[0][3], mp.mat[1][3], mp.mat[1][3]);
 	glutPostRedisplay();
 }
+
+void Rotate_White(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(0);
+	}
+}
+
+void Rotate_Yellow(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(1);
+	}
+}
+
+void Rotate_Blue(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(2);
+	}
+}
+
+void Rotate_Orange(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(3);
+	}
+}
+
+void Rotate_Green(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(4);
+	}
+}
+
+void Rotate_Red(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(5);
+	}
+}
+
 
 
 void MCSTransMenu(GLint transOption) {

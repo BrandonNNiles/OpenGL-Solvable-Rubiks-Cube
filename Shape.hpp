@@ -60,6 +60,7 @@ public:
 	void scaleChange (GLfloat x); /* set scale factor */
 	void setId(GLint id);
 	GLint getId();
+	void rotateSide(GLint face);
 	void translate(GLfloat tx, GLfloat ty, GLfloat tz); /* translate the MC origin by (tx, ty, tz) */
 	void rotate(GLfloat rx, GLfloat ry, GLfloat rz, GLfloat angle);   /* rotate w.r.t. axis (0,0,0)+u(rx,ry,rz) WCS */
 	void rotate(GLfloat x0, GLfloat  y0, GLfloat  z0, GLfloat  rx, GLfloat  ry, GLfloat rz, GLfloat  angle); /* rotate w.r.t. axis (x0,y0,z0)+u(rx,ry,yz) in WCS */

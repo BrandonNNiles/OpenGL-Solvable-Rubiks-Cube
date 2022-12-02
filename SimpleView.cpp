@@ -12,6 +12,7 @@
 #include "Camera.hpp"
 #include "Light.hpp"
 
+
 GLint winWidth = 800, winHeight = 800;
 GLint isInMove = 0,    /* flag for mouse motion */
 	  xbegin = 0,      /* hold mouse down xMouse */

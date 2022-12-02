@@ -7,6 +7,7 @@
 #include "Camera.hpp"
 #include "Color.hpp"
 #include <stdio.h>
+#include "Menu.hpp"
 
 extern Camera myCamera;
 extern Light myLight;
@@ -20,6 +21,8 @@ const GLint B = 2;
 const GLint O = 3;
 const GLint G = 4;
 const GLint R = 5;
+
+
 
 Rubiks::Rubiks()
 {
@@ -153,6 +156,7 @@ Rubiks::Rubiks()
     		faceColor[i][j] = Colors[i];
     	}
     }
+	
 
     //Define subfaces
 
@@ -454,5 +458,11 @@ void Rubiks::rotateSide(GLint Face)
 	 */
 }
 
+void Rubiks::setId(GLint i) {
+	id = i;
+}
 
+GLint Rubiks::getId() {
+	return id;
+}
 

@@ -10,6 +10,7 @@
 #include "Shape.hpp"
 #include "Vector.hpp"
 
+
 class Cube: public Shape {
 protected:
 	GLfloat vertex[8][3];  /* 2D array to store cube vertices */
