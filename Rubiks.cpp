@@ -328,11 +328,11 @@ GLfloat Rubiks::getVertexShade(int i, Light light) {
 void Rubiks::rotateSide(GLint Face)
 {
 
-	//General case for shuffling side that is being rotated
+	// General case for shuffling side that is being rotated
 	Color *temp;
 	Color *temp2;
 
-	//Corners
+	// Corners
 	temp = faceColor[Face][2];
 	faceColor[Face][2] = faceColor[Face][0];
 	temp2 = faceColor[Face][8];
@@ -341,7 +341,7 @@ void Rubiks::rotateSide(GLint Face)
 	faceColor[Face][6] = temp2;
 	faceColor[Face][0] = temp;
 
-	//Edges
+	// Edges
 	temp = faceColor[Face][5];
 	faceColor[Face][5] = faceColor[Face][1];
 	temp2 = faceColor[Face][7];
@@ -350,105 +350,188 @@ void Rubiks::rotateSide(GLint Face)
 	faceColor[Face][3] = temp2;
 	faceColor[Face][1] = temp;
 
-	//Specific cases for cross-face rotation
+	// Specific cases for cross-face rotation
 	switch (Face)
 	{
 
-	Color *temprow[3];
-	Color *temprow2[3];
+		Color *temprow[3];
+		Color *temprow2[3];
 
 	case W:
-		temprow[0] = faceColor[R][0]; temprow[1] = faceColor[R][1]; temprow[2] = faceColor[R][2];
+		temprow[0] = faceColor[R][0];
+		temprow[1] = faceColor[R][1];
+		temprow[2] = faceColor[R][2];
 
-		faceColor[R][0] = faceColor[B][6]; faceColor[R][1] = faceColor[B][3]; faceColor[R][2] = faceColor[B][0];
+		faceColor[R][0] = faceColor[B][0];
+		faceColor[R][1] = faceColor[B][3];
+		faceColor[R][2] = faceColor[B][6];
 
-		temprow2[0] = faceColor[G][2]; temprow2[1] = faceColor[G][5]; temprow2[2] = faceColor[G][8];
+		temprow2[0] = faceColor[G][2];
+		temprow2[1] = faceColor[G][5];
+		temprow2[2] = faceColor[G][8];
 
-		faceColor[G][2] = temprow[0]; faceColor[G][5] = temprow[1]; faceColor[G][8] = temprow[2];
+		faceColor[G][2] = temprow[0];
+		faceColor[G][5] = temprow[1];
+		faceColor[G][8] = temprow[2];
 
-		temprow[0] = faceColor[O][6]; temprow[1] = faceColor[O][7]; temprow[2] = faceColor[O][8];
+		temprow[0] = faceColor[O][6];
+		temprow[1] = faceColor[O][7];
+		temprow[2] = faceColor[O][8];
 
-		faceColor[O][8] = temprow2[0]; faceColor[O][7] = temprow2[1]; faceColor[O][6] = temprow2[2];
+		faceColor[O][6] = temprow2[0];
+		faceColor[O][7] = temprow2[1];
+		faceColor[O][8] = temprow2[2];
 
-		faceColor[B][0] = temprow[0]; faceColor[B][3] = temprow[1]; faceColor[B][6] = temprow[2];
+		faceColor[B][0] = temprow[0];
+		faceColor[B][3] = temprow[1];
+		faceColor[B][6] = temprow[2];
 
 		break;
 	case Y:
-		temprow[0] = faceColor[O][0]; temprow[1] = faceColor[O][1]; temprow[2] = faceColor[O][2];
+		temprow[0] = faceColor[O][0];
+		temprow[1] = faceColor[O][1];
+		temprow[2] = faceColor[O][2];
 
-		faceColor[O][0] = faceColor[B][6]; faceColor[O][1] = faceColor[B][3]; faceColor[O][2] = faceColor[B][0];
+		faceColor[O][0] = faceColor[B][0];
+		faceColor[O][1] = faceColor[B][3];
+		faceColor[O][2] = faceColor[B][6];
 
-		temprow2[0] = faceColor[G][2]; temprow2[1] = faceColor[G][5]; temprow2[2] = faceColor[G][8];
+		temprow2[0] = faceColor[G][2];
+		temprow2[1] = faceColor[G][5];
+		temprow2[2] = faceColor[G][8];
 
-		faceColor[G][2] = temprow[0]; faceColor[G][5] = temprow[1]; faceColor[G][8] = temprow[2];
+		faceColor[G][0] = temprow[0];
+		faceColor[G][3] = temprow[1];
+		faceColor[G][6] = temprow[2];
 
-		temprow[0] = faceColor[R][6]; temprow[1] = faceColor[R][7]; temprow[2] = faceColor[R][8];
+		temprow[0] = faceColor[R][6];
+		temprow[1] = faceColor[R][7];
+		temprow[2] = faceColor[R][8];
 
-		faceColor[R][8] = temprow2[0]; faceColor[R][7] = temprow2[1]; faceColor[R][6] = temprow2[2];
+		faceColor[R][6] = temprow2[0];
+		faceColor[R][7] = temprow2[1];
+		faceColor[R][8] = temprow2[2];
 
-		faceColor[B][0] = temprow[0]; faceColor[B][3] = temprow[1]; faceColor[B][6] = temprow[2];
+		faceColor[B][2] = temprow[0];
+		faceColor[B][5] = temprow[1];
+		faceColor[B][8] = temprow[2];
 		break;
 	case O:
-		temprow[0] = faceColor[G][0]; temprow[1] = faceColor[G][1]; temprow[2] = faceColor[G][2];
+		temprow[0] = faceColor[G][0];
+		temprow[1] = faceColor[G][1];
+		temprow[2] = faceColor[G][2];
 
-		faceColor[G][0] = faceColor[W][6]; faceColor[G][1] = faceColor[W][3]; faceColor[G][2] = faceColor[W][0];
+		faceColor[G][0] = faceColor[W][0];
+		faceColor[G][1] = faceColor[W][3];
+		faceColor[G][2] = faceColor[W][6];
 
-		temprow2[0] = faceColor[Y][2]; temprow2[1] = faceColor[Y][5]; temprow2[2] = faceColor[Y][8];
+		temprow2[0] = faceColor[Y][2];
+		temprow2[1] = faceColor[Y][5];
+		temprow2[2] = faceColor[Y][8];
 
-		faceColor[Y][2] = temprow[0]; faceColor[Y][5] = temprow[1]; faceColor[Y][8] = temprow[2];
+		faceColor[Y][0] = temprow[0];
+		faceColor[Y][1] = temprow[1];
+		faceColor[Y][2] = temprow[2];
 
-		temprow[0] = faceColor[B][6]; temprow[1] = faceColor[B][7]; temprow[2] = faceColor[B][8];
+		temprow[0] = faceColor[B][6];
+		temprow[1] = faceColor[B][7];
+		temprow[2] = faceColor[B][8];
 
-		faceColor[B][8] = temprow2[0]; faceColor[B][7] = temprow2[1]; faceColor[B][6] = temprow2[2];
+		faceColor[B][0] = temprow2[0];
+		faceColor[B][1] = temprow2[1];
+		faceColor[B][2] = temprow2[2];
 
-		faceColor[W][0] = temprow[0]; faceColor[W][3] = temprow[1]; faceColor[W][6] = temprow[2];
+		faceColor[W][0] = temprow[0];
+		faceColor[W][1] = temprow[1];
+		faceColor[W][2] = temprow[2];
 		break;
 	case R:
-		temprow[0] = faceColor[B][0]; temprow[1] = faceColor[B][1]; temprow[2] = faceColor[B][2];
+		temprow[0] = faceColor[B][0];
+		temprow[1] = faceColor[B][1];
+		temprow[2] = faceColor[B][2];
 
-		faceColor[B][0] = faceColor[W][6]; faceColor[B][1] = faceColor[W][3]; faceColor[B][2] = faceColor[W][0];
+		faceColor[B][6] = faceColor[W][0];
+		faceColor[B][7] = faceColor[W][3];
+		faceColor[B][8] = faceColor[W][6];
 
-		temprow2[0] = faceColor[Y][2]; temprow2[1] = faceColor[Y][5]; temprow2[2] = faceColor[Y][8];
+		temprow2[0] = faceColor[Y][2];
+		temprow2[1] = faceColor[Y][5];
+		temprow2[2] = faceColor[Y][8];
 
-		faceColor[Y][2] = temprow[0]; faceColor[Y][5] = temprow[1]; faceColor[Y][8] = temprow[2];
+		faceColor[Y][6] = temprow[0];
+		faceColor[Y][7] = temprow[1];
+		faceColor[Y][8] = temprow[2];
 
-		temprow[0] = faceColor[G][6]; temprow[1] = faceColor[G][7]; temprow[2] = faceColor[G][8];
+		temprow[0] = faceColor[G][6];
+		temprow[1] = faceColor[G][7];
+		temprow[2] = faceColor[G][8];
 
-		faceColor[G][8] = temprow2[0]; faceColor[G][7] = temprow2[1]; faceColor[G][6] = temprow2[2];
+		faceColor[G][6] = temprow2[0];
+		faceColor[G][7] = temprow2[1];
+		faceColor[G][8] = temprow2[2];
 
-		faceColor[W][0] = temprow[0]; faceColor[W][3] = temprow[1]; faceColor[W][6] = temprow[2];
+		faceColor[W][6] = temprow[0];
+		faceColor[W][7] = temprow[1];
+		faceColor[W][8] = temprow[2];
 		break;
 	case G:
-		temprow[0] = faceColor[R][0]; temprow[1] = faceColor[R][1]; temprow[2] = faceColor[R][2];
+		temprow[0] = faceColor[R][0];
+		temprow[1] = faceColor[R][1];
+		temprow[2] = faceColor[R][2];
 
-		faceColor[R][0] = faceColor[W][6]; faceColor[R][1] = faceColor[W][3]; faceColor[R][2] = faceColor[W][0];
+		faceColor[R][0] = faceColor[W][0];
+		faceColor[R][3] = faceColor[W][3];
+		faceColor[R][6] = faceColor[W][6];
 
-		temprow2[0] = faceColor[Y][2]; temprow2[1] = faceColor[Y][5]; temprow2[2] = faceColor[Y][8];
+		temprow2[0] = faceColor[Y][2];
+		temprow2[1] = faceColor[Y][5];
+		temprow2[2] = faceColor[Y][8];
 
-		faceColor[Y][2] = temprow[0]; faceColor[Y][5] = temprow[1]; faceColor[Y][8] = temprow[2];
+		faceColor[Y][2] = temprow[0];
+		faceColor[Y][5] = temprow[1];
+		faceColor[Y][8] = temprow[2];
 
-		temprow[0] = faceColor[O][6]; temprow[1] = faceColor[O][7]; temprow[2] = faceColor[O][8];
+		temprow[0] = faceColor[O][6];
+		temprow[1] = faceColor[O][7];
+		temprow[2] = faceColor[O][8];
 
-		faceColor[O][8] = temprow2[0]; faceColor[O][7] = temprow2[1]; faceColor[O][6] = temprow2[2];
+		faceColor[O][0] = temprow2[0];
+		faceColor[O][3] = temprow2[1];
+		faceColor[O][6] = temprow2[2];
 
-		faceColor[W][0] = temprow[0]; faceColor[W][3] = temprow[1]; faceColor[W][6] = temprow[2];
+		faceColor[W][0] = temprow[0];
+		faceColor[W][3] = temprow[1];
+		faceColor[W][6] = temprow[2];
 		break;
 	case B:
-		temprow[0] = faceColor[O][0]; temprow[1] = faceColor[O][1]; temprow[2] = faceColor[O][2];
+		temprow[0] = faceColor[O][0];
+		temprow[1] = faceColor[O][1];
+		temprow[2] = faceColor[O][2];
 
-		faceColor[O][0] = faceColor[W][6]; faceColor[O][1] = faceColor[W][3]; faceColor[O][2] = faceColor[W][0];
+		faceColor[O][2] = faceColor[W][0];
+		faceColor[O][5] = faceColor[W][3];
+		faceColor[O][8] = faceColor[W][6];
 
-		temprow2[0] = faceColor[Y][2]; temprow2[1] = faceColor[Y][5]; temprow2[2] = faceColor[Y][8];
+		temprow2[0] = faceColor[Y][2];
+		temprow2[1] = faceColor[Y][5];
+		temprow2[2] = faceColor[Y][8];
 
-		faceColor[Y][2] = temprow[0]; faceColor[Y][5] = temprow[1]; faceColor[Y][8] = temprow[2];
+		faceColor[Y][0] = temprow[0];
+		faceColor[Y][3] = temprow[1];
+		faceColor[Y][6] = temprow[2];
 
-		temprow[0] = faceColor[R][6]; temprow[1] = faceColor[R][7]; temprow[2] = faceColor[R][8];
+		temprow[0] = faceColor[R][6];
+		temprow[1] = faceColor[R][7];
+		temprow[2] = faceColor[R][8];
 
-		faceColor[R][8] = temprow2[0]; faceColor[R][7] = temprow2[1]; faceColor[R][6] = temprow2[2];
+		faceColor[R][2] = temprow2[0];
+		faceColor[R][5] = temprow2[1];
+		faceColor[R][8] = temprow2[2];
 
-		faceColor[W][0] = temprow[0]; faceColor[W][3] = temprow[1]; faceColor[W][6] = temprow[2];
+		faceColor[W][2] = temprow[0];
+		faceColor[W][5] = temprow[1];
+		faceColor[W][8] = temprow[2];
 		break;
-
 	}
 	draw();
 	/*
@@ -465,4 +548,3 @@ void Rubiks::setId(GLint i) {
 GLint Rubiks::getId() {
 	return id;
 }
-
