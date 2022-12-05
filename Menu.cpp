@@ -23,10 +23,6 @@ extern Stack theStack;
 
 
 void menu() {
-	GLint Object_Menu = glutCreateMenu(ObjSubMenu);
-	glutAddMenuEntry("Cube", 1);
-	glutAddMenuEntry("Pyramid", 2);
-	glutAddMenuEntry("House", 3);
 	
 	GLint RotateWhiteSub = glutCreateMenu(Rotate_White);
 	glutAddMenuEntry("CW", 1);
@@ -112,7 +108,6 @@ void menu() {
 
 	glutCreateMenu(mainMenu);
 	glutAddMenuEntry("Reset", 1);
-	//glutAddSubMenu("Select Object", Object_Menu);
 	glutAddSubMenu("Rotate White", RotateWhiteSub);
 	glutAddSubMenu("Rotate Yellow", RotateYellowSub);
 	glutAddSubMenu("Rotate Blue", RotateBlueSub);
@@ -218,7 +213,7 @@ void Rotate_Red(GLint n) {
 
 void Solve(){
 
-	while((&theStack)->top >= -1) {
+	while((&theStack)->top >= 1) {
 		GLint num = (&theStack)->pop(); //number of rotations in stack
 		GLint face = (&theStack)->pop(); //face
 		printf("Popped n rotations off stack: %d\n", num);
