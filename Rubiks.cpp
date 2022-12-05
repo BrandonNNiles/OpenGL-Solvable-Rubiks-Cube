@@ -10,6 +10,8 @@
 #include "Menu.hpp"
 #include "stack.hpp"
 
+#include<windows.h>
+
 extern Camera myCamera;
 extern Light myLight;
 extern CullMode cullMode;
@@ -535,9 +537,6 @@ void Rubiks::rotateSide(GLint Face)
 		break;
 	}
 	draw();
-	/*
-	 * To do:
-	 * stack.append(Face);
-	 *
-	 */
+	glutPostRedisplay();
+
 }

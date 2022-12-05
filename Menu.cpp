@@ -11,6 +11,8 @@
 #include "stack.hpp"
 #include <stdio.h>
 
+#include <windows.h>
+
 extern GLint csType;
 extern Shape* selectObj;
 extern GLint transType, xbegin;
@@ -20,6 +22,7 @@ extern Light myLight;
 extern CullMode cullMode;
 extern RenderMode renderMode;
 extern Stack theStack;
+
 
 
 void menu() {
@@ -258,12 +261,10 @@ void Solve(){
 			
 		}
 
-		//(&theStack)->pop();
-		//(&theStack)->pop();
-
-
 	}
 }
+
+
 void Solve_White(GLint n) {
 	
 	for(int i=0;i<n;i++) {
@@ -274,6 +275,7 @@ void Solve_White(GLint n) {
 void Solve_Yellow(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(1);
+		
 	}
 }
 
