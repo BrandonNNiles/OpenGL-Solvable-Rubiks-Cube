@@ -218,7 +218,7 @@ void Rotate_Red(GLint n) {
 
 void Solve(){
 
-	while((&theStack)->top > -1) {
+	while((&theStack)->top >= -1) {
 		GLint num = (&theStack)->pop(); //number of rotations in stack
 		GLint face = (&theStack)->pop(); //face
 		printf("Popped n rotations off stack: %d\n", num);
@@ -263,8 +263,8 @@ void Solve(){
 			
 		}
 
-		(&theStack)->pop();
-		(&theStack)->pop();
+		//(&theStack)->pop();
+		//(&theStack)->pop();
 
 
 	}
