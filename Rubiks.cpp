@@ -8,12 +8,13 @@
 #include "Color.hpp"
 #include <stdio.h>
 #include "Menu.hpp"
+#include "stack.hpp"
 
 extern Camera myCamera;
 extern Light myLight;
 extern CullMode cullMode;
 extern RenderMode renderMode;
-
+Stack theStack;
 //Color reference INTS
 const GLint W = 0;
 const GLint Y = 1;
@@ -539,12 +540,4 @@ void Rubiks::rotateSide(GLint Face)
 	 * stack.append(Face);
 	 *
 	 */
-}
-
-void Rubiks::setId(GLint i) {
-	id = i;
-}
-
-GLint Rubiks::getId() {
-	return id;
 }

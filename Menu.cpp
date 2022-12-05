@@ -141,6 +141,7 @@ void mainMenu(GLint option) {
 			break;
 		case 3:
 			Solve();
+			break;
 	}
 	glutPostRedisplay();
 }
@@ -154,8 +155,6 @@ void ObjSubMenu(GLint objectOption)
 }
 
 void Rotate_White(GLint n) {
-	printf("Rotate_White input: %d\n",n);
-	
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(0);
 	}
@@ -210,6 +209,7 @@ void Rotate_Red(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(5);
 	}
+
 	GLint side = 5;
 	(&theStack)->push(side);
 	printf("n: %d\n", n);
@@ -224,11 +224,11 @@ void Solve(){
 		printf("Popped n rotations off stack: %d\n", num);
 		printf("Popped side %d off stack\n", face);
 		GLint r = 0;
-		if (num == 0) { //1x cw
-			r = 4;
-		}
-		else if (num == 1) { //2x
+		if (num == 1) { //1x cw
 			r = 3;
+		}
+		else if (num == 2) { //2x
+			r = 2;
 		}
 		else{ //3x cw or 1x ccw
 			r = 1;
@@ -305,6 +305,8 @@ void Solve_Red(GLint n) {
 		((Rubiks*)selectObj)->rotateSide(5);
 	}
 }
+
+
 
 void MCSTransMenu(GLint transOption) {
 	csType = 1;

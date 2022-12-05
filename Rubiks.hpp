@@ -41,9 +41,7 @@ public:
 	GLfloat getFaceShade(int faceindex, Light light);
 	GLfloat getVertexShade(int vertexindex, Light light);
 	void rotateSide(GLint Face);
-	
-	void setId(GLint id);
-	GLint getId();
+
 
 };
 
