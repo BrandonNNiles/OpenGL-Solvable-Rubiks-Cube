@@ -8,6 +8,8 @@
 #include "Camera.hpp"
 #include "Light.hpp"
 #include "Rubiks.hpp"
+#include "stack.hpp"
+#include <stdio.h>
 
 extern GLint csType;
 extern Shape* selectObj;
@@ -17,7 +19,7 @@ extern Camera myCamera;
 extern Light myLight;
 extern CullMode cullMode;
 extern RenderMode renderMode;
-// extern Rubiks r;
+extern Stack theStack;
 
 
 void menu() {
@@ -125,6 +127,7 @@ void menu() {
 	glutAddSubMenu("Shading", Shading_Menu);
 	glutAddSubMenu("Animation", Animate_Menu);
 	glutAddMenuEntry("Quit", 2);
+	glutAddMenuEntry("Solve Cube", 3);
 }
 
 void mainMenu(GLint option) {
@@ -136,6 +139,8 @@ void mainMenu(GLint option) {
 		case 2:
 			exit(0);
 			break;
+		case 3:
+			Solve();
 	}
 	glutPostRedisplay();
 }
@@ -149,42 +154,157 @@ void ObjSubMenu(GLint objectOption)
 }
 
 void Rotate_White(GLint n) {
+	printf("Rotate_White input: %d\n",n);
+	
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(0);
 	}
+	GLint side = 0;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
+
 }
 
 void Rotate_Yellow(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(1);
 	}
+	GLint side = 1;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
 }
 
 void Rotate_Blue(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(2);
 	}
+	GLint side = 2;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
 }
 
 void Rotate_Orange(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(3);
 	}
+	GLint side = 3;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
 }
 
 void Rotate_Green(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(4);
 	}
+	GLint side = 4;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
 }
 
 void Rotate_Red(GLint n) {
 	for(int i=0;i<n;i++) {
 		((Rubiks*)selectObj)->rotateSide(5);
 	}
+	GLint side = 5;
+	(&theStack)->push(side);
+	printf("n: %d\n", n);
+	(&theStack)->push(n);
 }
 
+void Solve(){
 
+	while((&theStack)->top > -1) {
+		GLint num = (&theStack)->pop(); //number of rotations in stack
+		GLint face = (&theStack)->pop(); //face
+		printf("Popped n rotations off stack: %d\n", num);
+		printf("Popped side %d off stack\n", face);
+		GLint r = 0;
+		if (num == 0) { //1x cw
+			r = 4;
+		}
+		else if (num == 1) { //2x
+			r = 3;
+		}
+		else{ //3x cw or 1x ccw
+			r = 1;
+		}
+		
+		switch(face) {
+			case 0: {
+				Solve_White(r);
+				break;
+			}
+			case 1: {
+				Solve_Yellow(r);
+				break;
+			}
+			case 2: {
+				Solve_Blue(r);
+				break;
+			}
+			case 3: {
+				Solve_Orange(r);
+				break;
+			}
+			case 4: {
+				Solve_Green(r);
+				break;
+			}
+			case 5: {
+				Solve_Red(r);
+				break;
+			}
+		
+			
+		}
+
+		(&theStack)->pop();
+		(&theStack)->pop();
+
+
+	}
+}
+void Solve_White(GLint n) {
+	
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(0);
+	}
+}
+
+void Solve_Yellow(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(1);
+	}
+}
+
+void Solve_Blue(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(2);
+	}
+}
+
+void Solve_Orange(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(3);
+	}
+}
+
+void Solve_Green(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(4);
+	}
+}
+
+void Solve_Red(GLint n) {
+	for(int i=0;i<n;i++) {
+		((Rubiks*)selectObj)->rotateSide(5);
+	}
+}
 
 void MCSTransMenu(GLint transOption) {
 	csType = 1;
