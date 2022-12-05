@@ -28,34 +28,34 @@ extern Stack theStack;
 void menu() {
 	
 	GLint RotateWhiteSub = glutCreateMenu(Rotate_White);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 	
 	GLint RotateYellowSub = glutCreateMenu(Rotate_Yellow);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 	
 	GLint RotateBlueSub = glutCreateMenu(Rotate_Blue);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 	
 	GLint RotateOrangeSub = glutCreateMenu(Rotate_Orange);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 	
 	GLint RotateGreenSub = glutCreateMenu(Rotate_Green);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 	
 	GLint RotateRedSub = glutCreateMenu(Rotate_Red);
-	glutAddMenuEntry("CW", 1);
+	glutAddMenuEntry("CCW", 1);
 	glutAddMenuEntry("2X", 2);
-	glutAddMenuEntry("CCW", 3);
+	glutAddMenuEntry("CW", 3);
 
 	GLint MCTrans_Menu = glutCreateMenu(MCSTransMenu);
 	glutAddMenuEntry("Rotate x", 1);
