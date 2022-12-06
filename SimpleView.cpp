@@ -10,7 +10,6 @@
 #include "Menu.hpp"
 #include "World.hpp"
 #include "Camera.hpp"
-#include "Light.hpp"
 
 
 GLint winWidth = 800, winHeight = 800;
@@ -24,13 +23,11 @@ RenderMode renderMode = CONSTANT;  /* shade option  */
 
 World myWorld;
 Camera myCamera;
-Light myLight;
 Shape *selectObj = NULL;  /* pointer to selected object */
 
 void init(void) {
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	selectObj = myWorld.searchById(1);
-	myLight.on = false;
 }
 
 
@@ -38,7 +35,6 @@ void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	myCamera.setProjectionMatrix();
 	myWorld.draw();
-	myLight.draw();
 	glFlush();
 	glutSwapBuffers();
 }
@@ -72,9 +68,6 @@ void mouseMotionFcn(GLint xMouse, GLint yMouse) {
 		else if(csType == 3){
 			VCSTransform(xMouse);
 		}
-		else if(csType == 4) {
-			lightTransform(xMouse);
-		}
 		glutPostRedisplay();
 	}
 }
@@ -84,7 +77,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(winWidth, winHeight);
-	glutCreateWindow("SimpleView2 (Brandon Niles)");
+	glutCreateWindow("Rubik's Cube");
 	init();
 	menu();
 	glutDisplayFunc(display);

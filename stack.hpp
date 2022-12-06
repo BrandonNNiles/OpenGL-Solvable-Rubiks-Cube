@@ -2,25 +2,23 @@
 #define CStack_H
 #include <GL/glut.h>
 
+#include "Node.hpp"
+
 
 class Stack {
 	
-	GLint stack[100];
-	
 	
 public:
-	
-	GLint n;
-	GLint top;
+	Node *top;
+	int length;
 	
 	Stack() {
-		int top = -1;
-		int n = 100;
-		
+		top = NULL;
+		length = 1;
 	}
 	
-	void push(GLint val);
-	GLint pop();
+	void push(GLint face, GLint num);
+	Node* pop();
 
 };
 

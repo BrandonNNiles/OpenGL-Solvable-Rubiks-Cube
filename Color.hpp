@@ -1,7 +1,5 @@
 /*
- *  SimpleView : reference design
- *  Author: HBF
- *  Version: 2022-10-06
+ *  Author: Brandon, Shawn, Joey
  */
 #ifndef CColor_H
 #define CColor_H

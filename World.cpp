@@ -6,7 +6,6 @@ using namespace std;
 World::World() {
 	Shape *obj = NULL;
 
-    /* add Cube into the world object list */
 	obj = new Rubiks();
 	obj->setId(1);
 	obj->scaleChange(-0.2);
@@ -31,13 +30,6 @@ void lineSegment(float x1, float y1, float z1, float x2, float y2, float z2) {
 }
 
 void World::draw() {
-//	glColor3f(1.0, 0.0, 0.0);
-//	lineSegment(-2, 0, 0, 4, 0, 0); /* x-axis in red */
-// 	glColor3f(0.0, 1.0, 0.0);
-//	lineSegment(0, -2, 0, 0, 4, 0); /* y-axis in green */
-//	glColor3f(0.0, 0.0, 1.0);
-//	lineSegment(0, 0, -2, 0, 0, 4); /* z-axis in blue */
-
 	std::list<Shape*>::iterator it;
 	for (it = objlist.begin(); it !=  objlist.end(); ++it) {
 	  (*it)->draw();
@@ -60,12 +52,6 @@ void World::reset(){
 	obj = this->searchById(3);
 	obj->reset();
 	obj->setScale(0.5);
-
-
-//	std::list<Shape*>::iterator it;
-//	for (it = objlist.begin(); it !=  objlist.end(); ++it) {
-//	  (*it)->reset();
-//  }
 }
 
 Shape* World::searchById(GLint i) {

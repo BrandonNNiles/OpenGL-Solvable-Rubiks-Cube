@@ -1,26 +1,29 @@
 
 #include "stack.hpp"
+#include "Node.hpp"
 #include <stdio.h>
 extern Stack theStack;
-using namespace std;
 
-void Stack::push(GLint val) {
+void Stack::push(GLint face, GLint num) {
 	
-	//if((&theStack)->top>=((&theStack)->n)-1){} //do nothing, stack full
-	//else {
-		((&theStack)->top)++;
-		(&theStack)->stack[top]=val;
+	Node *n = new Node(face, num);
+	(n->previous) = ((&theStack)->top);
+	((&theStack)->top) = n;
+	length++;
 
 }
-GLint Stack::pop() {
+Node* Stack::pop() {
 	
-  // if((&theStack)->top<=-1){} //do nothing, stack empty
-  // else {
+	Node *n = NULL;
 
-      int n  = (&theStack)->stack[top];
-      ((&theStack)->top)--;
+	if(((&theStack)->top) != NULL){
+		n = ((&theStack)->top);
+		((&theStack)->top) = n->previous;
+	}
+
+	length--;
 
 
-   //}
+
    return n;
 }
