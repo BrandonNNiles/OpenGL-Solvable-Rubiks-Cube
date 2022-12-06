@@ -32,7 +32,9 @@ This project is a project submission for CP-411 Fall 2022. The project aims to p
     * Stack implmentation to track moves
     * Calculating inverse of recorded moves
 
-<img src="media/images/demo.gif" alt="Menu Commands">
+<div align="center">
+    <img src="media/images/demo.gif" alt="Menu Commands">
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -46,6 +48,7 @@ The following languages, tools, and frameworks were used to develop the project:
 * OpenGL
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Follow the below steps to run the application.
