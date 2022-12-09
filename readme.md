@@ -61,7 +61,9 @@ Follow the below steps to run the application.
 
 
 a) Execute the file `Solveable Rubik's Cube.exe`.
+
 or
+
 b) Compile the contents of `/src/` with the compiler of your choosing.
 
 
@@ -109,6 +111,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- CONTACT -->
+
 ## Contact
 
 Brandon Niles - [LinkedIn](https://www.linkedin.com/in/brandonnniles/) - brandonniles00@gmail.com
